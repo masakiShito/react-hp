@@ -1,6 +1,7 @@
 // src/components/sections/About.tsx
 import React from 'react';
 import { Calendar, Globe, MapPin, Mail, Award, Briefcase } from 'lucide-react';
+import profileImage from '../../assets/images/profile.png'; // 画像をインポート
 
 interface ProfileDetail {
   icon: typeof Calendar;
@@ -11,7 +12,7 @@ interface ProfileDetail {
 export const About: React.FC = () => {
   const leftDetails: ProfileDetail[] = [
     { icon: Calendar, label: "生年月日", value: "1997/07/15" },
-    { icon: Globe, label: "Webサイト", value: "https://xxx.com" },
+    { icon: Globe, label: "Webサイト", value: "coming soon" },
     { icon: MapPin, label: "居住地", value: "大阪, 日本" },
   ];
 
@@ -23,8 +24,8 @@ export const About: React.FC = () => {
 
   const ProfileItem = ({ icon: Icon, label, value }: ProfileDetail) => (
     <div className="flex items-center space-x-4 mb-6">
-      <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-        <Icon size={20} className="text-blue-600" />
+      <div className="w-10 h-10 rounded-full bg-lime-100 flex items-center justify-center">
+        <Icon size={20} className="text-lime-600" />
       </div>
       <div>
         <p className="text-sm text-gray-600">{label}</p>
@@ -38,7 +39,7 @@ export const About: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">MoRoFuJiについて</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+          <div className="w-20 h-1 bg-lime-600 mx-auto mb-4"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
             MoRoFuJiに興味を持っていただきありがとうございます。
             以下、MoRoFuJiについて詳しく記載させていただきます。
@@ -50,12 +51,12 @@ export const About: React.FC = () => {
             <div className="relative">
               <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-lg">
                 <img
-                  src="/api/placeholder/600/600"
+                  src={profileImage}
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600 rounded-2xl opacity-20"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-lime-600 rounded-2xl opacity-20"></div>
             </div>
 
             <div className="space-y-6">
