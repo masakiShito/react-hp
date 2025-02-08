@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Project } from '../../types';
 import { Github, ExternalLink } from 'lucide-react';
+import { Construction } from 'lucide-react';
 
 interface PortfolioCardProps extends Project {
   category: string;
@@ -93,29 +94,40 @@ export const Portfolio: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex justify-center mb-12">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveFilter(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
-                  ${activeFilter === category
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white text-gray-600 hover:bg-blue-50'
-                }`}
-              >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </button>
-            ))}
+        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-12">
+          <div className="flex flex-col items-center justify-center space-y-6">
+            <Construction className="w-24 h-24 text-blue-600"/>
+            <h3 className="text-2xl font-bold text-gray-800">Coming Soon</h3>
+            <p className="text-gray-600 text-center">
+              現在、実績セクションを準備中です。<br/>
+              近日公開予定ですので、今しばらくお待ちください。
+            </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {filteredProjects.map((project, index) => (
-            <PortfolioCard key={index} {...project} />
-          ))}
-        </div>
+        {/*<div className="flex justify-center mb-12">*/}
+        {/*  <div className="flex flex-wrap justify-center gap-4">*/}
+        {/*    {categories.map((category) => (*/}
+        {/*      <button*/}
+        {/*        key={category}*/}
+        {/*        onClick={() => setActiveFilter(category)}*/}
+        {/*        className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300*/}
+        {/*          ${activeFilter === category*/}
+        {/*          ? 'bg-blue-600 text-white'*/}
+        {/*          : 'bg-white text-gray-600 hover:bg-blue-50'*/}
+        {/*        }`}*/}
+        {/*      >*/}
+        {/*        {category.charAt(0).toUpperCase() + category.slice(1)}*/}
+        {/*      </button>*/}
+        {/*    ))}*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+
+        {/*<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">*/}
+        {/*  {filteredProjects.map((project, index) => (*/}
+        {/*    <PortfolioCard key={index} {...project} />*/}
+        {/*  ))}*/}
+        {/*</div>*/}
       </div>
     </section>
   );
