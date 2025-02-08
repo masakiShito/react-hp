@@ -1,3 +1,4 @@
+// src/components/layout/Header.tsx
 import { Github, Twitter, Mail, Linkedin } from 'lucide-react';
 import { Navigation } from './Navigation';
 import TextTransition, { presets } from "react-text-transition";
@@ -16,7 +17,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="min-h-screen relative bg-gradient-to-b from-gray-50 to-white">
+    <header id="header" className="min-h-screen relative bg-gradient-to-b from-gray-50 to-white">
       <Navigation />
       <div className="absolute inset-0 bg-gray-50/70" />
       <div className="relative h-screen flex items-center">

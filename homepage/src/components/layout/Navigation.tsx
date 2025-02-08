@@ -1,3 +1,4 @@
+// src/components/layout/Navigation.tsx
 import React from 'react';
 import { User, Code, BookOpen, Award, Home } from 'lucide-react';
 
@@ -8,23 +9,25 @@ interface NavItemProps {
 }
 
 const NavItem: React.FC<NavItemProps> = ({ href, icon: Icon, isActive = false }) => (
-  <a
-    href={href}
-    className={`block p-4 rounded-full transition-all duration-300
-    ${isActive
-      ? 'bg-blue-600 text-white shadow-lg'
-      : 'bg-white text-gray-600 shadow-md hover:bg-blue-600 hover:text-white'}`}
-  >
-    <Icon size={20} />
-  </a>
+  <div className="w-full mb-2">
+    <a
+      href={href}
+      className={`w-14 h-14 flex items-center justify-center rounded-full transition-all duration-300
+      ${isActive
+        ? 'bg-lime-600 text-white shadow-lg'
+        : 'bg-gray-100 text-gray-600 hover:bg-lime-600 hover:text-white'}`}
+    >
+      <Icon size={20} />
+    </a>
+  </div>
 );
 
 export const Navigation: React.FC = () => {
-  const [activeSection, setActiveSection] = React.useState('home');
+  const [activeSection, setActiveSection] = React.useState('header');
 
   React.useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'portfolio'];
+      const sections = ['header', 'about', 'skills', 'experience', 'portfolio'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -44,11 +47,13 @@ export const Navigation: React.FC = () => {
 
   return (
     <nav className="fixed left-0 top-1/2 -translate-y-1/2 ml-6 space-y-6 z-50">
-      <NavItem href="#home" icon={Home} isActive={activeSection === 'home'} />
-      <NavItem href="#about" icon={User} isActive={activeSection === 'about'} />
-      <NavItem href="#skills" icon={Code} isActive={activeSection === 'skills'} />
-      <NavItem href="#experience" icon={BookOpen} isActive={activeSection === 'experience'} />
-      <NavItem href="#portfolio" icon={Award} isActive={activeSection === 'portfolio'} />
+      <div className="w-[140px] flex flex-col items-start gap-2">
+        <NavItem href="#header" icon={Home} isActive={activeSection === 'header'} />
+        <NavItem href="#about" icon={User} isActive={activeSection === 'about'} />
+        <NavItem href="#skills" icon={Code} isActive={activeSection === 'skills'} />
+        <NavItem href="#experience" icon={BookOpen} isActive={activeSection === 'experience'} />
+        <NavItem href="#portfolio" icon={Award} isActive={activeSection === 'portfolio'} />
+      </div>
     </nav>
   );
 };
